@@ -20,13 +20,13 @@ public class SortingGUI extends JFrame {
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setLayout(new BorderLayout());
         
-        
+        // Text Area
         textArea = new JTextArea();
         textArea.setEditable(false);
         JScrollPane scrollPane = new JScrollPane(textArea);
         add(scrollPane, BorderLayout.CENTER);
 
-        
+        // Top Panel (Upload and Sort)
         JPanel topPanel = new JPanel();
         uploadButton = new JButton("Upload File");
         sortButton = new JButton("Sort");
@@ -34,19 +34,19 @@ public class SortingGUI extends JFrame {
         topPanel.add(sortButton);
         add(topPanel, BorderLayout.NORTH);
 
-    
+        // Bottom Panel (Options)
         JPanel bottomPanel = new JPanel();
         bottomPanel.setLayout(new GridLayout(2, 1));
 
-        // قائمة اختيار الالجورزم
+        // Algorithm Selection Panel
         JPanel algoPanel = new JPanel();
         algorithmSelector = new JComboBox<>(new String[] {
-            "Merge Sort", "Quick Sort", "Bubble Sort"
+            "Merge Sort", "Quick Sort"  // Removed "Bubble Sort"
         });
         algoPanel.add(new JLabel("Select Algorithm:"));
         algoPanel.add(algorithmSelector);
 
-        // قائمة اختيار نوع العملية هل هي seq or parallel
+        // Mode Selection Panel (Sequential vs Parallel)
         JPanel modePanel = new JPanel();
         sequentialButton = new JRadioButton("Sequential", true);
         parallelButton = new JRadioButton("Parallel");
@@ -60,7 +60,7 @@ public class SortingGUI extends JFrame {
         bottomPanel.add(modePanel);
         add(bottomPanel, BorderLayout.SOUTH);
 
-        // قراية الملف
+        // Listeners
         uploadButton.addActionListener(e -> uploadFile());
         sortButton.addActionListener(e -> sortFile());
 
@@ -97,25 +97,19 @@ public class SortingGUI extends JFrame {
         boolean isParallel = parallelButton.isSelected();
         long startTime = System.currentTimeMillis();
 
-        // اختار الالجورزم الي هيشتغل
+        // Choose algorithm to sort based on selected options
         switch (algo) {
             case "Merge Sort":
                 if (isParallel)
-                    ParallelMergeSort.sort(arrToSort); 
+                    ParallelMergeSort.sort(arrToSort); // Call Parallel Merge Sort
                 else
-                    SequentialMergeSort.sort(arrToSort); 
+                    SequentialMergeSort.sort(arrToSort); // Call Sequential Merge Sort
                 break;
             case "Quick Sort":
                 if (isParallel)
-                    ParallelQuickSort.sort(arrToSort); 
+                    ParallelQuickSort.sort(arrToSort); // Call Parallel Quick Sort
                 else
-                    SequentialQuickSort.sort(arrToSort);
-                break;
-            case "Bubble Sort":
-                if (isParallel)
-                    ParallelBubbleSort.sort(arrToSort);
-                else
-                    SequentialBubbleSort.sort(arrToSort); 
+                    SequentialQuickSort.sort(arrToSort); // Call Sequential Quick Sort
                 break;
         }
 

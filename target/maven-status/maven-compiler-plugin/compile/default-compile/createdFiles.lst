@@ -1,10 +1,7 @@
-parallel_sort\ParallelBubbleSort$BubbleSortTask.class
 parallel_sort\ParallelQuickSort.class
 parallel_sort\SequentialQuickSort.class
-parallel_sort\ParallelBubbleSort.class
 parallel_sort\SequentialMergeSort.class
 parallel_sort\ParallelMergeSort$MergeSortTask.class
 parallel_sort\ParallelMergeSort.class
 parallel_sort\ParallelQuickSort$QuickSortTask.class
-parallel_sort\SequentialBubbleSort.class
 parallel_sort\SortingGUI.class
