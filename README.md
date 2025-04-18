@@ -8,7 +8,6 @@ Features
   Choose from multiple sorting algorithms:
     - Merge Sort
     - Quick Sort
-    - Bubble Sort
 Select execution mode:
   - Sequential
   - Parallel (multi-threaded)
